@@ -1,0 +1,31 @@
+1 2 3 4 
+ 2 3 4 
+  3 4 
+   4 
+  3 4 
+ 2 3 4 
+1 2 3 4 
+
+#include <stdio.h>
+
+int main()
+{
+int n=4;
+	for(int i=1; i<=n; i++) {
+		for(int j=1; j<=n; j++) {
+			if(j<i) printf(" ");
+			else printf("%d ",j);
+		}
+		printf("\n");
+	}
+    for(int i=n-1;i>=1;i--){
+        for(int j=1;j<=n;j++){
+            if(j<i) printf(" ");
+            else printf("%d ",j);
+        }
+        printf("\n");
+    }
+
+
+	return 0;
+}
