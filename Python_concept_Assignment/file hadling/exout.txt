@@ -1,0 +1,5 @@
+2 not prime
+3 prime
+4 not prime
+5 prime
+6 not prime
