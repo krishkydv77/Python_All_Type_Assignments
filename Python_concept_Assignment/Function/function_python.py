@@ -359,3 +359,163 @@ print(gen)
 - function should have YIELD  keyword
 - lazy function
 """
+
+#===============================================================================================
+#---------------------------------------------------------------functions-------------------------------------------------
+
+#-----------------------------------------------------------------------call by value,call by refrence---------------------
+#call by value: it stores same value at different address . python does not use call by value 
+#call by reference : when multiple variables share same address it is called call by refrence
+# which means any change will be faced by every variable
+#python follows call by object reference
+
+#there are 2 type of functions 
+#1 predefined function :inbuilt functions like print ,input() and etc
+#2 userdefined functions: functions made by user 
+#for using userdefined function user need to first do deceleration of function then after that you need to call function
+#syntax:
+# def function_name(): #deceleration of function
+#     expression
+# function_name() #calling of function
+
+# def mera_phela_function():
+#     print('yokuso ')
+#     print('watashiwa nawaema mihir desu')
+# mera_phela_function()
+
+#global variable and local variable
+# count=0 #this is global variable
+# def sum(a,b):
+#     global count
+#     c=a+b #these are local variables
+    
+#     count+=1
+#     print('c',c,"count=",count)
+# sum(10,30)
+
+
+#types of argument passing
+#1 positional 
+# def details(name,age,fees):
+#     print(f"name:{name},age:{age},fees:{fees}")
+# details('mihir',23,69000)#this is positional argument but what if the data is not given in the same manner 
+# details(690000,'mihir',23)#then this positional argument will not work properly
+
+# #2 keyword 
+# details(fees=690000,name='mihir',age=23)#this is keyword based argument as it will always display and store
+#data on the given variable 
+
+# def input_user(a):
+#     print("name:",a)
+# input(input('enter the name'))
+
+
+#3 default argument 
+# def details(name,age,fees='4311'):
+#   print(f"name:{name},age:{age},fees:{fees}")
+# details(name='mihir',age=23)#default is always created at the right most side of the parameter
+
+#4 variable length argument (denoted by *args)
+# def variable_arguments(**num):
+#     print(num , type(num))
+# variable_arguments(a=10)
+# variable_arguments(a=21,b=212,c=432,d=123,e=43)# as you can see it saves data in tuple form
+
+#high order functions and first class functions(properties)
+#high order functions are functions that return one or more functions as argumenst or as result
+#Functions are treated like normal variables.
+#You can do everything with functions that you can do with integers, strings, lists, etc.
+# first-class objects
+
+# def addnum(num):
+#     print(num+20)
+# x=addnum(81)
+# print(' value of  x ::',x) #as we run the code we can see that value of x is none as we are not returning any thing
+#first class function :
+# def fun(a):
+#     print('value inside function :',a)
+# x=fun
+# print('value of x : ',id(x),'value of function : ',id(fun)) #as both have same address this is one of the properties of first class function
+# x=10
+# fun(x)
+# print('value of x : ',x,'value of function : ',fun(x))
+
+
+# def addnum(a,b):
+#     return (a+b)
+# def add_two_nums(x,y):
+#     print("x :",x,"y : ",y)
+#     print(y(10,20))
+# add_two_nums(90,addnum)
+
+#lamda function : it is same like normal function but it starts with lambda keyword . they are also called anonynous function 
+# used to make code readable as its a one line function and use it like an use and throw 
+# syntax : lambda n number of parameters : expression
+
+# a= lambda num : num*num
+# print(a(8))
+
+#generator / map and filter function
+# map and its properties 
+# map is a high  order function which takes another function as a argument
+# it is lazy works only when asked so that it cant consume much 
+# memory and can be used efficiently
+# syntax
+# map(function,structure datatype)
+# def cube(n):
+#     return n*n*n
+# c=map(cube,[8,23,1,4])
+# # print("8:",next(c))
+# # print("23:",next(c))
+# # print("1:",next(c))
+# # print(":4",next(c))
+# print(c.__next__())  #another way to run next()
+# print(list(map(lambda a:a+10,(5,10,20,26)))) #or you can add all the elements into list
+
+
+
+#filter function
+# it is similar to map but this could give output according to the condition
+# print(tuple(map(lambda a: a%2!=0,(5,19,23,2,12,5)))) #in output you will get values as true or false
+# print(tuple(filter(lambda a: a%2!=0,(5,19,23,2,12,5)))) #but if you use filter it will give you real values
+
+# generator function
+# it is used to generate the value on demand it has yield at place of return
+# it is used to generate the value one at a time 
+#syntax 
+# def gen():
+#     print('abc')
+#     yield 1
+#     print('2nd time running ')
+#     yield 69
+# fun=gen()
+# print(gen())# if you simply print the function it will print the address of the function
+# print(next(fun))# but if you want to print the data within the function you need to first put the function in a variable 
+# #then you will need to use the next function 
+# print(next(fun))# the generator function is similar to map as it requires next function for the output
+
+
+# def ex():
+#     n=1
+#     while (True):
+#         yield n
+#         n+=1
+# a= ex()
+# print(next(a))
+# print(next(a))
+        
+#create a fibonacci series using generator function
+# def fibo():
+#     a=0
+#     b=1
+#     while (True):
+#         next=a+b
+#         yield a
+#         a=b
+#         b=next 
+# fi = fibo()
+# n=int(input('enter the range:'))
+# i=0
+# while(i<n):
+#     print("the fibonacci series is :",next(fi))
+#     i+=1

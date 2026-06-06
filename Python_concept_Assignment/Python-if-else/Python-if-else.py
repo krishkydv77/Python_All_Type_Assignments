@@ -153,7 +153,7 @@ else:
 
 
 #Q12 Write a program that takes the name of a month as input and prints the number of days in that
-month. Consider leap years for February.
+#month. Consider leap years for February.
 
 monthName =input('Enter Month Name:')
 year =int(input('Enter year:'))
